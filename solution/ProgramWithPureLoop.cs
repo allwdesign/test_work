@@ -3,19 +3,36 @@
 /// given condition (their length is less than or equal to 3 characters).
 /// Needed to determine the size of the new array.
 /// </summary>
-int CountStringRequiredLength(string[] arrayA, int requiredLength)
+int CountStringsRequiredLength(string[] array, int requiredLength)
 {
     int count = 0;
-    for (int i = 0; i < arrayA.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {     
-        if (arrayA[i].Length <= requiredLength) count += 1;
+        if (array[i].Length <= requiredLength) count += 1;
     }
     return count;
 }
 
-int GetNewArraySize(string[] array, int requiredLength)
+/// <summary>
+/// The method tests the program with test data sets. 
+/// </summary>
+/// <param name="originalArray">
+/// An array of strings that is specified at the beginning of the program
+/// execution.
+/// </param>
+/// <param name="stringLength">
+/// The length of the string. Used to compare with the length of each element
+/// of the original array.
+/// </param>
+void Test(string[] originalArray, int stringLength)
 {
-    return CountStringRequiredLength(array, requiredLength); 
+    int newArraySize = CountStringsRequiredLength(
+        originalArray,
+        stringLength);
+
+    string[] newArray = new string[newArraySize];
+
+    Console.WriteLine(newArraySize); 
 }
 
 /// <summary>
@@ -27,15 +44,14 @@ void ProgramCheck()
     
     int stringLength = 3;
 
-    string[] testArray1 = {"Hello", "2", "world", ":-)"}; 
-    
-    Console.WriteLine(GetNewArraySize(testArray1, stringLength)); 
+    string[] testArray1 = {"Hello", "2", "world", ":-)"};
+    Test(testArray1, stringLength);   
 
     string[] testArray2 = {"1234", "1567", "-2", "computer science"};
-    Console.WriteLine(GetNewArraySize(testArray2, stringLength));
+    Test(testArray2, stringLength);
 
     string[] testArray3 = {"Russia", "Denmark", "Kazan"};
-    Console.WriteLine(GetNewArraySize(testArray3, stringLength));    
+    Test(testArray3, stringLength);        
     
     Console.WriteLine("---------------END PROGRAM CHECK------------------\n");
 }
