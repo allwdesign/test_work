@@ -130,7 +130,7 @@ try
     
     string[] originalArray = {"1567", "0", "Hello", "lk[2rkl515r", "@3@", ""};
 	
-	//Before using, the array must be initialized.
+    //Before using, the array must be initialized.
     //To do this, you need to know its size and it will be equal to the number
     //of strings with a length less than or equal to 3 characters of the 
     //original array.
