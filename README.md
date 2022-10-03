@@ -24,11 +24,17 @@ with arrays.
 ------------------------------
 In order to solve the task you need:
 1. **Make a block diagram** of the program execution algorithm. I will use https://app.diagrams.net/
+
 ![Program](Program.drawio.png)
+
 ![ProgramCheck() and Test()](ProgramCheckAndTest.drawio.png)
+
 ![CountStringsRequiredLength()](CountStringsRequiredLength.drawio.png)
+
 ![FillArrayWithStrings()](FillArrayWithStrings.drawio.png)
+
 ![PrintResult()](PrintResult.drawio.png)
+
 ![GetStringWithArrayElements()](GetStringWithArrayElements.drawio.png)
 
 2. **Decompose the task**. I create methods that solve specific small problems.
