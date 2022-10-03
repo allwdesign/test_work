@@ -22,8 +22,8 @@ int CountStringsRequiredLength(string[] array, int requiredLength)
 }
 
 /// <summary>
-/// Метод из имеющегося массива строк формирует новый массив из строк,
-/// длина которых меньше, либо равна 3 символам.
+/// The method from the original array of strings will form a new array of 
+/// strings whose length is less than or equal to 3 characters.
 /// </summary>
 /// <param name="array">
 /// Array of strings of different lengths that is specified at the beginning 
@@ -37,8 +37,8 @@ int CountStringsRequiredLength(string[] array, int requiredLength)
 /// The length of the string. Used to compare with the length of each element
 /// of the original array.
 /// </param>
-void FillArrayFromAnotherStringArray(
-    string[] array, 
+void FillArrayWithStrings(
+    string[] array,
     string[] newArray,
     int requiredStringLength)
 {
@@ -69,11 +69,10 @@ string GetStringWithArrayElements(string[] array)
 void PrintResult(string[] arrayA, string[] arrayB)
 {
     //Formatted result output
-    Console.Write(
-        GetStringWithArrayElements(arrayA) +
-        " -> " +
-        GetStringWithArrayElements(arrayB) +
-        "\n");
+    string resultStr = string.Empty;
+    resultStr = GetStringWithArrayElements(arrayA) + " -> " +
+                GetStringWithArrayElements(arrayB) + "\n";
+    Console.Write(resultStr);
     Console.WriteLine();
 }
 
@@ -98,7 +97,7 @@ void Test(string[] originalArray, int stringLength)
 
     if (newArraySize != 0)
     {
-        FillArrayFromAnotherStringArray(originalArray, newArray, stringLength);
+        FillArrayWithStrings(originalArray, newArray, stringLength);
     }
     PrintResult(originalArray, newArray); 
 }
@@ -107,20 +106,51 @@ void Test(string[] originalArray, int stringLength)
 /// The method prints test information to the console. 
 /// </summary>
 void ProgramCheck()
-{
-    Console.WriteLine("\n-----------------PROGRAM CHECK-------------------\n");
-    
+{  
     int stringLength = 3;
 
     string[] testArray1 = {"Hello", "2", "world", ":-)"};
-    Test(testArray1, stringLength);   
-
     string[] testArray2 = {"1234", "1567", "-2", "computer science"};
-    Test(testArray2, stringLength);
-
     string[] testArray3 = {"Russia", "Denmark", "Kazan"};
+
+    Console.WriteLine("\n-----------------PROGRAM CHECK-------------------\n");
+    Test(testArray1, stringLength);   
+   
+    Test(testArray2, stringLength);
+   
     Test(testArray3, stringLength);        
     
     Console.WriteLine("---------------END PROGRAM CHECK------------------\n");
 }
 ProgramCheck();
+
+try
+{
+    int stringLength = 3;
+    
+    string[] originalArray = {"1567", "0", "Hello", "lk[2rkl515r", "@3@", ""};
+	
+	//Before using, the array must be initialized.
+    //To do this, you need to know its size and it will be equal to the number
+    //of strings with a length less than or equal to 3 characters of the 
+    //original array.
+    int newArraySize = CountStringsRequiredLength(
+        originalArray,
+        stringLength);
+    
+    string[] newArray = new string[newArraySize];
+    
+    if (newArraySize != 0)
+    {
+        FillArrayWithStrings(originalArray, newArray, stringLength);
+    }
+    PrintResult(originalArray, newArray);
+}
+catch (IndexOutOfRangeException)
+{
+    Console.Write("Index was outside the bounds of the array.");
+}    
+catch
+{
+    Console.WriteLine("Something went wrong");
+}
