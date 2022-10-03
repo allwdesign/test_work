@@ -1,5 +1,5 @@
 ﻿/// <summary>
-/// Method for counting the number of rows of the source array that satisfy
+/// Method for counting the number of strings of the source array that satisfy
 /// given condition (their length is less than or equal to 3 characters).
 /// Needed to determine the size of the new array.
 /// </summary>
@@ -118,7 +118,7 @@ void ProgramCheck()
    
     Test(testArray2, stringLength);
    
-    Test(testArray3, stringLength);        
+    Test(testArray3, stringLength);   
     
     Console.WriteLine("---------------END PROGRAM CHECK------------------\n");
 }
